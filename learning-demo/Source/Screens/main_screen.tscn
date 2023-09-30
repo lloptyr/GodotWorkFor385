@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://covs6fj8troqa"]
+
+[ext_resource type="Texture2D" uid="uid://c2vvg44rtb87p" path="res://start-assets/background.png" id="1_8q662"]
+[ext_resource type="PackedScene" uid="uid://cvwnxp0i3io6d" path="res://Source/user_interface/title.tscn" id="2_j7eur"]
+[ext_resource type="PackedScene" uid="uid://cg3t2cltvlpnd" path="res://Source/user_interface/ChangeScenebutton.tscn" id="3_lo3fp"]
+[ext_resource type="PackedScene" uid="uid://c67dej086i6mk" path="res://Source/user_interface/quit_button.tscn" id="5_370gu"]
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 650.0
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8q662")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="title" parent="." instance=ExtResource("2_j7eur")]
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -80.5
+offset_right = 128.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChangeSceneButton" parent="VBoxContainer" instance=ExtResource("3_lo3fp")]
+layout_mode = 2
+next_scene_path = "res://Source/levels/testlevel.tscn"
+
+[node name="QuitButton" parent="VBoxContainer" instance=ExtResource("5_370gu")]
+layout_mode = 2
+
+[connection signal="button_up" from="VBoxContainer/ChangeSceneButton" to="VBoxContainer/ChangeSceneButton" method="_on_button_up"]

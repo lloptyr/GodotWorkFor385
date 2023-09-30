@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvwnxp0i3io6d"]
+
+[ext_resource type="Theme" uid="uid://c0mggfv438fb1" path="res://start-assets/new_theme.tres" id="1_eevb8"]
+
+[node name="title" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_right = 300.0
+offset_bottom = 198.0
+grow_horizontal = 2
+theme = ExtResource("1_eevb8")
+theme_type_variation = &"HeaderLarge"
+text = "A Demo Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
