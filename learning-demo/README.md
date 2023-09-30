@@ -16,6 +16,8 @@ To replicate:
 
 	Occasionally, lateral movement will completely stop
 
+You can see this happen several times in the video, where the movement jitters, or I fall straight down after a jump.
+
 I am unsure what causes this, it may be the tutorial's fault, the tutorial being out of date, or my machine.
 
 Otherwise I found Godot well documented, and somewhat easy to work with.
