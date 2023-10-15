@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg3t2cltvlpnd"]
+
+[ext_resource type="Theme" uid="uid://c0mggfv438fb1" path="res://start-assets/new_theme.tres" id="1_m8mvj"]
+[ext_resource type="Script" path="res://Source/user_interface/ChangeScenebutton.gd" id="2_ycxcm"]
+
+[node name="ChangeSceneButton" type="Button"]
+size_flags_vertical = 3
+theme = ExtResource("1_m8mvj")
+text = "Play"
+script = ExtResource("2_ycxcm")

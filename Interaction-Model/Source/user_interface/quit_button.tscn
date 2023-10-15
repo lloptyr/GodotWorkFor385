@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c67dej086i6mk"]
+
+[ext_resource type="Theme" uid="uid://c0mggfv438fb1" path="res://start-assets/new_theme.tres" id="1_hobyn"]
+[ext_resource type="Script" path="res://Source/user_interface/quit_button.gd" id="2_tcldc"]
+
+[node name="QuitButton" type="Button"]
+size_flags_vertical = 3
+theme = ExtResource("1_hobyn")
+text = "Quit"
+script = ExtResource("2_tcldc")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]
