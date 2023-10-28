@@ -45,4 +45,16 @@ next_scene_path = "res://Source/levels/testlevel.tscn"
 [node name="QuitButton" parent="VBoxContainer" instance=ExtResource("5_370gu")]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 272.0
+offset_right = 240.0
+offset_bottom = 378.0
+text = "A and D to Move
+Space to Jump
+E to Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="button_up" from="VBoxContainer/ChangeSceneButton" to="VBoxContainer/ChangeSceneButton" method="_on_button_up"]
