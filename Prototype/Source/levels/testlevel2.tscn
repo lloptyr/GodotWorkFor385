@@ -36,10 +36,8 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608,
 
 [node name="Player" parent="." instance=ExtResource("3_0e3w1")]
 position = Vector2(162, 481)
-gravity = 4000.0
-speed = Vector2(400, 1000)
 
-[node name="Camera2D" parent="Player" index="2"]
+[node name="Camera2D" parent="Player" index="1"]
 limit_right = 3042
 
 [node name="enemy" parent="." instance=ExtResource("4_ngjvk")]

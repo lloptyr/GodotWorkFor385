@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnksf1iyfcuk0"]
+[gd_scene load_steps=11 format=3 uid="uid://cnksf1iyfcuk0"]
 
 [ext_resource type="PackedScene" uid="uid://cdrv17sw07yqd" path="res://Source/user_interface/user_interface.tscn" id="1_kr4xm"]
 [ext_resource type="TileSet" uid="uid://dkeip523b0pj8" path="res://start-assets/tileset.tres" id="2_ce806"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bamdbu3jurqa2" path="res://Source/objects/portal.tscn" id="6_hfxrb"]
 [ext_resource type="PackedScene" uid="uid://ds874tiq0yexm" path="res://Source/Screens/end_screen.tscn" id="8_vhd4y"]
 [ext_resource type="PackedScene" uid="uid://dxsk1v35hepk7" path="res://Source/levels/the_pit.tscn" id="9_f7yty"]
+[ext_resource type="PackedScene" uid="uid://dfscftkm6j1m6" path="res://Source/objects/wallclingrune.tscn" id="10_3eb5a"]
 
 [node name="testlevel" type="Node2D"]
 metadata/_edit_vertical_guides_ = [3042.0, 6405.0, 6415.0]
@@ -37,10 +38,9 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 0, 131072, 2, 0, 196608,
 
 [node name="Player" parent="." instance=ExtResource("3_rtae0")]
 position = Vector2(162, 481)
-gravity = 4000.0
-speed = Vector2(400, 1000)
+gravity = 3000.0
 
-[node name="Camera2D" parent="Player" index="2"]
+[node name="Camera2D" parent="Player" index="1"]
 limit_right = 6415
 
 [node name="enemy" parent="." instance=ExtResource("4_wf3qt")]
@@ -139,4 +139,10 @@ position = Vector2(4490, 32)
 [node name="coin22" parent="." instance=ExtResource("5_mp0kt")]
 position = Vector2(4247, 32)
 
+[node name="WallclingRune" parent="." instance=ExtResource("10_3eb5a")]
+position = Vector2(5610, -13)
+
 [editable path="Player"]
+[editable path="Player/AnimatedSprite2D/Hitboxfront"]
+[editable path="Player/AnimatedSprite2D/Hitboxback"]
+[editable path="Player/AnimatedSprite2D/Hitboxdown"]

@@ -1,38 +1,101 @@
-[gd_scene load_steps=5 format=3 uid="uid://cukjftovpsx5t"]
+[gd_scene load_steps=14 format=3 uid="uid://cukjftovpsx5t"]
 
 [ext_resource type="Script" path="res://Source/actor/enemy.gd" id="1_axleg"]
-[ext_resource type="Texture2D" uid="uid://cmmxsc7fd62d5" path="res://start-assets/enemy.png" id="2_fyh63"]
+[ext_resource type="Texture2D" uid="uid://doh0g077wg2xb" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Mob/Snail/walk-Sheet.png" id="2_io0qx"]
+[ext_resource type="PackedScene" uid="uid://dlo8j0jvdowjs" path="res://Source/actor/hurtbox.tscn" id="3_qyiuw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djoob"]
-size = Vector2(102, 73)
+size = Vector2(74, 73)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dv7x"]
-size = Vector2(126, 28)
+[sub_resource type="AtlasTexture" id="AtlasTexture_matxj"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2d73"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1kkf"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twquu"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dh2q"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6gll"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5267"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrvu5"]
+atlas = ExtResource("2_io0qx")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efkp8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_matxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2d73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1kkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twquu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dh2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6gll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5267")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrvu5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_axleg")
 
-[node name="enemy" type="Sprite2D" parent="."]
-position = Vector2(0, -48)
-texture = ExtResource("2_fyh63")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -36.5)
+position = Vector2(1, -36.5)
 shape = SubResource("RectangleShape2D_djoob")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 position = Vector2(-2.50001, -114)
 scale = Vector2(12.05, 11.3)
 
-[node name="stompdetector" type="Area2D" parent="."]
-modulate = Color(0.380392, 0.0901961, 0.796078, 1)
-position = Vector2(0, -74)
-collision_layer = 2
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9.53674e-07, -50.5)
+scale = Vector2(2.125, 3.15625)
+sprite_frames = SubResource("SpriteFrames_efkp8")
+autoplay = "default"
+frame_progress = 0.0840349
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="stompdetector"]
-position = Vector2(-1, -13)
-shape = SubResource("RectangleShape2D_6dv7x")
+[node name="Hurtbox" parent="AnimatedSprite2D" instance=ExtResource("3_qyiuw")]
+position = Vector2(4.48788e-07, 16)
+scale = Vector2(0.470588, 0.316832)
 
-[connection signal="body_entered" from="stompdetector" to="." method="_on_stompdetector_body_entered"]
+[node name="ouchzone" parent="AnimatedSprite2D/Hurtbox" index="0"]
+position = Vector2(3, -61)
+
+[editable path="AnimatedSprite2D/Hurtbox"]

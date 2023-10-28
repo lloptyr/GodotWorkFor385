@@ -40,7 +40,7 @@ position = Vector2(162, 481)
 gravity = 4000.0
 speed = Vector2(400, 1000)
 
-[node name="Camera2D" parent="Player" index="2"]
+[node name="Camera2D" parent="Player" index="1"]
 zoom = Vector2(0.7, 0.7)
 limit_right = 3042
 limit_bottom = 2206
@@ -137,3 +137,6 @@ position = Vector2(2803, 553)
 next_scene = ExtResource("8_0phl7")
 
 [editable path="Player"]
+[editable path="Player/AnimatedSprite2D/Hitboxfront"]
+[editable path="Player/AnimatedSprite2D/Hitboxback"]
+[editable path="Player/AnimatedSprite2D/Hitboxdown"]

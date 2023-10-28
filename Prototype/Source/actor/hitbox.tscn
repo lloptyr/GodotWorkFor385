@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cibi3sgnvpii4"]
+
+[ext_resource type="Script" path="res://Source/actor/hitbox.gd" id="1_60tiq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5d0x"]
+size = Vector2(60, 110)
+
+[node name="Hitbox" type="Area2D"]
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("1_60tiq")
+
+[node name="damagebox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h5d0x")
+disabled = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
