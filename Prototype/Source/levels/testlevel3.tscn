@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnksf1iyfcuk0"]
+[gd_scene load_steps=10 format=3 uid="uid://cnksf1iyfcuk0"]
 
+[ext_resource type="Script" path="res://Source/levels/testlevel3.gd" id="1_4jwqc"]
 [ext_resource type="PackedScene" uid="uid://cdrv17sw07yqd" path="res://Source/user_interface/user_interface.tscn" id="1_kr4xm"]
 [ext_resource type="TileSet" uid="uid://dkeip523b0pj8" path="res://start-assets/tileset.tres" id="2_ce806"]
 [ext_resource type="Texture2D" uid="uid://uso68wr78ekw" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="2_w7tc8"]
@@ -7,11 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cukjftovpsx5t" path="res://Source/actor/enemy.tscn" id="4_wf3qt"]
 [ext_resource type="PackedScene" uid="uid://1gkldp2j4tlk" path="res://Source/objects/coin.tscn" id="5_mp0kt"]
 [ext_resource type="PackedScene" uid="uid://bamdbu3jurqa2" path="res://Source/objects/portal.tscn" id="6_hfxrb"]
-[ext_resource type="PackedScene" uid="uid://ds874tiq0yexm" path="res://Source/Screens/end_screen.tscn" id="8_vhd4y"]
-[ext_resource type="PackedScene" uid="uid://dxsk1v35hepk7" path="res://Source/levels/the_pit.tscn" id="9_f7yty"]
 [ext_resource type="PackedScene" uid="uid://dfscftkm6j1m6" path="res://Source/objects/wallclingrune.tscn" id="10_3eb5a"]
 
-[node name="testlevel" type="Node2D"]
+[node name="testlevel3" type="Node2D"]
+script = ExtResource("1_4jwqc")
 metadata/_edit_vertical_guides_ = [3042.0, 6405.0, 6415.0]
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
@@ -111,12 +111,12 @@ position = Vector2(4281, 627)
 
 [node name="portal" parent="." instance=ExtResource("6_hfxrb")]
 position = Vector2(6259, 390)
-next_scene = ExtResource("8_vhd4y")
+next_scene = "res://Source/Screens/end_screen.tscn"
 
 [node name="portal" parent="portal" instance=ExtResource("6_hfxrb")]
 visible = false
 position = Vector2(28, 335)
-next_scene = ExtResource("9_f7yty")
+next_scene = "res://Source/levels/the_pit.tscn"
 
 [node name="coin16" parent="." instance=ExtResource("5_mp0kt")]
 position = Vector2(5859, 103)

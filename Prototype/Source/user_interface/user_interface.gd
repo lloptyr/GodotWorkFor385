@@ -22,7 +22,7 @@ func _unhandled_input(event: InputEvent):
 		get_viewport().set_input_as_handled()
 		
 func update_interface():
-	score.text="Score: %s" % str(PlayerData.score)
+	score.text="Score: %s" % str(PlayerData.get_score())
 
 func set_paused(val:bool):
 	paused=val

@@ -10,6 +10,8 @@ var can_jump = false
 var is_dead = false
 var is_falling = false
 
+
+
 func _process(delta):
 	if (!is_dead):
 		if Input.is_action_just_pressed("attack") && Input.is_action_pressed("down"):
@@ -47,6 +49,10 @@ func _process(delta):
 			_animated_sprite.get_node("Hitboxdown/downbox").disabled=false
 			await(_animated_sprite.animation_finished)
 			_animated_sprite.get_node("Hitboxdown/downbox").disabled=true
+			
+		if PlayerData.get_allow_save() && Input.is_action_just_pressed("interact"):
+			PlayerData.save_game_state()
+
 
 
 
@@ -119,9 +125,9 @@ func wallcling():
 			velocity.y=min(velocity.y+wall_slide_acceleration, max_wall_slide_speed)
 
 
+func _on_savedetector_area_entered(area):
+	PlayerData.set_allow_save(true)
 
-
-
-
-
+func _on_savedetector_area_exited(area):
+	PlayerData.set_allow_save(false)
 

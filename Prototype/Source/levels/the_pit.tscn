@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxsk1v35hepk7"]
+[gd_scene load_steps=10 format=3 uid="uid://dxsk1v35hepk7"]
 
+[ext_resource type="Script" path="res://Source/levels/the_pit.gd" id="1_kuw6d"]
 [ext_resource type="PackedScene" uid="uid://cdrv17sw07yqd" path="res://Source/user_interface/user_interface.tscn" id="1_rf4mk"]
 [ext_resource type="Texture2D" uid="uid://uso68wr78ekw" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="2_o00sp"]
 [ext_resource type="TileSet" uid="uid://dkeip523b0pj8" path="res://start-assets/tileset.tres" id="3_2c6tr"]
@@ -7,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cukjftovpsx5t" path="res://Source/actor/enemy.tscn" id="5_4m8bm"]
 [ext_resource type="PackedScene" uid="uid://1gkldp2j4tlk" path="res://Source/objects/coin.tscn" id="6_81a2k"]
 [ext_resource type="PackedScene" uid="uid://bamdbu3jurqa2" path="res://Source/objects/portal.tscn" id="7_1mmhg"]
-[ext_resource type="PackedScene" uid="uid://ds874tiq0yexm" path="res://Source/Screens/end_screen.tscn" id="8_0phl7"]
+[ext_resource type="PackedScene" uid="uid://dlfmqfb0kw58t" path="res://Source/objects/bench.tscn" id="9_csv03"]
 
-[node name="testlevel" type="Node2D"]
+[node name="testlevel4" type="Node2D"]
+script = ExtResource("1_kuw6d")
 metadata/_edit_vertical_guides_ = [3042.0, 3037.0]
 metadata/_edit_horizontal_guides_ = [2206.0]
 
@@ -134,7 +136,10 @@ position = Vector2(2680, 1636)
 
 [node name="portal" parent="." instance=ExtResource("7_1mmhg")]
 position = Vector2(2803, 553)
-next_scene = ExtResource("8_0phl7")
+next_scene = "res://Source/Screens/end_screen.tscn"
+
+[node name="Bench" parent="." instance=ExtResource("9_csv03")]
+position = Vector2(493, 1944)
 
 [editable path="Player"]
 [editable path="Player/AnimatedSprite2D/Hitboxfront"]

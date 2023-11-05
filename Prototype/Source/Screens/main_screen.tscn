@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://covs6fj8troqa"]
+[gd_scene load_steps=7 format=3 uid="uid://covs6fj8troqa"]
 
 [ext_resource type="Texture2D" uid="uid://uso68wr78ekw" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_7oi8r"]
 [ext_resource type="PackedScene" uid="uid://cvwnxp0i3io6d" path="res://Source/user_interface/title.tscn" id="2_j7eur"]
 [ext_resource type="PackedScene" uid="uid://cg3t2cltvlpnd" path="res://Source/user_interface/ChangeScenebutton.tscn" id="3_lo3fp"]
 [ext_resource type="PackedScene" uid="uid://c67dej086i6mk" path="res://Source/user_interface/quit_button.tscn" id="5_370gu"]
+[ext_resource type="PackedScene" uid="uid://qkf326mh2qje" path="res://Source/objects/loadbutton.tscn" id="5_jy2cr"]
+[ext_resource type="Script" path="res://Source/objects/loadbutton.gd" id="6_pumtw"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -40,21 +42,17 @@ grow_vertical = 2
 
 [node name="ChangeSceneButton" parent="VBoxContainer" instance=ExtResource("3_lo3fp")]
 layout_mode = 2
-next_scene_path = "res://Source/levels/testlevel.tscn"
+text = "New Game"
+next_scene_path = "res://Source/Screens/tutorial.tscn"
+
+[node name="LoadButton" parent="VBoxContainer" instance=ExtResource("5_jy2cr")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Load"
+script = ExtResource("6_pumtw")
 
 [node name="QuitButton" parent="VBoxContainer" instance=ExtResource("5_370gu")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 272.0
-offset_right = 240.0
-offset_bottom = 378.0
-text = "A and D to Move
-Space to Jump
-E to Attack"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="button_up" from="VBoxContainer/ChangeSceneButton" to="VBoxContainer/ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/LoadButton" to="VBoxContainer/LoadButton" method="_on_button_up"]

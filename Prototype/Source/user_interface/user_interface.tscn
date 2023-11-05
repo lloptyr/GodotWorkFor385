@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdrv17sw07yqd"]
+[gd_scene load_steps=8 format=3 uid="uid://cdrv17sw07yqd"]
 
 [ext_resource type="Theme" uid="uid://c0mggfv438fb1" path="res://start-assets/new_theme.tres" id="1_i40g4"]
 [ext_resource type="Script" path="res://Source/user_interface/user_interface.gd" id="2_61x87"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cg3t2cltvlpnd" path="res://Source/user_interface/ChangeScenebutton.tscn" id="3_a6gg7"]
 [ext_resource type="Script" path="res://Source/user_interface/Retrybutton.gd" id="4_4cmb1"]
 [ext_resource type="PackedScene" uid="uid://c67dej086i6mk" path="res://Source/user_interface/quit_button.tscn" id="5_owojg"]
+[ext_resource type="PackedScene" uid="uid://c8mnrrwiad5ng" path="res://Source/user_interface/main_menu_button.tscn" id="6_bt8h3"]
 
 [node name="user_interface" type="Control"]
 process_mode = 3
@@ -58,16 +59,16 @@ grow_vertical = 2
 
 [node name="Retry" parent="PauseScreen/PauseMenu" instance=ExtResource("3_a6gg7")]
 layout_mode = 2
-text = "Retry? Resets Score"
+text = "Retry"
 script = ExtResource("4_4cmb1")
 
-[node name="ChangeSceneButton" parent="PauseScreen/PauseMenu" instance=ExtResource("3_a6gg7")]
+[node name="MainMenuButton" parent="PauseScreen/PauseMenu" instance=ExtResource("6_bt8h3")]
 layout_mode = 2
-text = "Main Menu"
+size_flags_vertical = 3
 next_scene_path = "res://Source/Screens/main_screen.tscn"
 
 [node name="QuitButton" parent="PauseScreen/PauseMenu" instance=ExtResource("5_owojg")]
 layout_mode = 2
 
 [connection signal="button_up" from="PauseScreen/PauseMenu/Retry" to="PauseScreen/PauseMenu/Retry" method="_on_button_up"]
-[connection signal="button_up" from="PauseScreen/PauseMenu/ChangeSceneButton" to="PauseScreen/PauseMenu/ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="PauseScreen/PauseMenu/MainMenuButton" to="PauseScreen/PauseMenu/MainMenuButton" method="_on_button_up"]

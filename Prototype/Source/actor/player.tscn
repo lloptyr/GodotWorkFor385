@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dcbrbc1psw30s"]
+[gd_scene load_steps=60 format=3 uid="uid://dcbrbc1psw30s"]
 
 [ext_resource type="Script" path="res://Source/actor/player.gd" id="1_062o1"]
 [ext_resource type="Texture2D" uid="uid://31qrdc1jjjfl" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="2_07knd"]
@@ -378,6 +378,9 @@ size = Vector2(18.156, 49.4268)
 
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_w7aa2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10fli"]
+size = Vector2(49, 99)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 8
 script = ExtResource("1_062o1")
@@ -431,7 +434,6 @@ collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 position = Vector2(-0.453902, 48.2548)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_11yve")
 
 [node name="Hitboxback" parent="AnimatedSprite2D" instance=ExtResource("8_fo23q")]
@@ -451,9 +453,19 @@ shape = SubResource("ConcavePolygonShape2D_w7aa2")
 polygon = PackedVector2Array(-9.98582, 21.9108, 8.62411, 21.9108, 9.07801, 6.6242, 35.8582, 6.6242, 35.8582, 42.8026, -37.2199, 42.293, -37.2199, 7.13376, -9.98582, 7.13376)
 disabled = true
 
+[node name="savedetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="savedetector"]
+position = Vector2(-2.5, -55.5)
+shape = SubResource("RectangleShape2D_10fli")
+
 [connection signal="area_entered" from="enemydetector" to="." method="_on_enemydetector_area_entered"]
 [connection signal="body_entered" from="enemydetector" to="." method="_on_enemydetector_body_entered"]
 [connection signal="area_entered" from="AnimatedSprite2D/Hitboxdown" to="." method="_on_hitboxdown_area_entered"]
+[connection signal="area_entered" from="savedetector" to="." method="_on_savedetector_area_entered"]
+[connection signal="area_exited" from="savedetector" to="." method="_on_savedetector_area_exited"]
 
 [editable path="AnimatedSprite2D/Hitboxfront"]
 [editable path="AnimatedSprite2D/Hitboxback"]

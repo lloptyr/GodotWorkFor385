@@ -1,5 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://3k6btv2r6vpj"]
 
+[ext_resource type="Script" path="res://Source/levels/testlevel.gd" id="1_c3p5f"]
 [ext_resource type="TileSet" uid="uid://dkeip523b0pj8" path="res://start-assets/tileset.tres" id="1_emsn5"]
 [ext_resource type="PackedScene" uid="uid://cdrv17sw07yqd" path="res://Source/user_interface/user_interface.tscn" id="1_gwv4b"]
 [ext_resource type="Texture2D" uid="uid://uso68wr78ekw" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="2_a13tw"]
@@ -7,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cukjftovpsx5t" path="res://Source/actor/enemy.tscn" id="3_xstqq"]
 [ext_resource type="PackedScene" uid="uid://1gkldp2j4tlk" path="res://Source/objects/coin.tscn" id="5_f31xr"]
 [ext_resource type="PackedScene" uid="uid://bamdbu3jurqa2" path="res://Source/objects/portal.tscn" id="6_suga3"]
-[ext_resource type="PackedScene" uid="uid://crygf5g2w2qqv" path="res://Source/levels/testlevel2.tscn" id="7_vuh18"]
 
-[node name="testlevel" type="Node2D"]
+[node name="testlevel1" type="Node2D"]
+script = ExtResource("1_c3p5f")
 metadata/_edit_vertical_guides_ = [3042.0]
 
 [node name="Player" parent="." instance=ExtResource("2_wxckn")]
@@ -58,7 +59,7 @@ position = Vector2(1156, 437)
 
 [node name="portal" parent="." instance=ExtResource("6_suga3")]
 position = Vector2(2799, 554)
-next_scene = ExtResource("7_vuh18")
+next_scene = "res://Source/levels/testlevel2.tscn"
 
 [editable path="Player"]
 [editable path="Player/AnimatedSprite2D/Hitboxfront"]
