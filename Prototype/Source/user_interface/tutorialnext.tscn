@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn16ctw461e0i"]
+
+[ext_resource type="Script" path="res://Source/user_interface/tutorialnext.gd" id="1_hyi4s"]
+
+[node name="tutorialnext" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Continue"
+script = ExtResource("1_hyi4s")
+next_scene_path = "res://Source/levels/testlevel.tscn"

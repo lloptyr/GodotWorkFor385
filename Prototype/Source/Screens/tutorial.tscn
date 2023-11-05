@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://cra2lqpcfg78h"]
+
+[ext_resource type="Texture2D" uid="uid://uso68wr78ekw" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="1_5srxr"]
+[ext_resource type="Texture2D" uid="uid://ohs32o21msql" path="res://start-assets/self-made/akey.png" id="2_x0dql"]
+[ext_resource type="Texture2D" uid="uid://cedj3jpfhck3i" path="res://start-assets/self-made/dkey.png" id="3_42fvv"]
+[ext_resource type="Texture2D" uid="uid://gpeogh06eklo" path="res://start-assets/self-made/ekey.png" id="4_2fy3w"]
+[ext_resource type="Texture2D" uid="uid://c0jwmdpp0cde" path="res://start-assets/self-made/skey.png" id="5_hnh2b"]
+[ext_resource type="Texture2D" uid="uid://cr0sxlyyqqvps" path="res://start-assets/self-made/xkey.png" id="6_50k8l"]
+[ext_resource type="Texture2D" uid="uid://cev6xctfdp6xu" path="res://start-assets/self-made/spacebar.png" id="7_ihqqf"]
+[ext_resource type="PackedScene" uid="uid://bn16ctw461e0i" path="res://Source/user_interface/tutorialnext.tscn" id="8_nqf12"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+texture = ExtResource("1_5srxr")
+
+[node name="Akey" type="Sprite2D" parent="."]
+position = Vector2(433, 216)
+texture = ExtResource("2_x0dql")
+
+[node name="Dkey" type="Sprite2D" parent="."]
+position = Vector2(502.25, 216)
+scale = Vector2(1.08491, 1.07143)
+texture = ExtResource("3_42fvv")
+
+[node name="Ekey" type="Sprite2D" parent="."]
+position = Vector2(502, 290)
+texture = ExtResource("4_2fy3w")
+
+[node name="Skey" type="Sprite2D" parent="."]
+position = Vector2(500, 431)
+texture = ExtResource("5_hnh2b")
+
+[node name="Xkey" type="Sprite2D" parent="."]
+position = Vector2(501, 361)
+texture = ExtResource("6_50k8l")
+
+[node name="Spacebar" type="Sprite2D" parent="."]
+position = Vector2(454, 498)
+scale = Vector2(0.0891892, 0.076271)
+texture = ExtResource("7_ihqqf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 195.0
+offset_right = 690.0
+offset_bottom = 516.0
+text = "Left and Right
+
+
+Attack
+
+
+Interact
+
+
+Look Down
+
+Jump"
+
+[node name="tutorialnext" parent="." instance=ExtResource("8_nqf12")]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 565.0
+offset_right = 692.0
+offset_bottom = 596.0
+
+[connection signal="button_up" from="tutorialnext" to="tutorialnext" method="_on_button_up"]

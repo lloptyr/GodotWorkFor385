@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8mnrrwiad5ng"]
+
+[ext_resource type="Script" path="res://Source/user_interface/main_menu_button.gd" id="1_ijy0m"]
+
+[node name="MainMenuButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Main Menu"
+script = ExtResource("1_ijy0m")
