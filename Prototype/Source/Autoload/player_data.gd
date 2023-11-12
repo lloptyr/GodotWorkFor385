@@ -3,10 +3,13 @@ extends Node
 signal score_updated
 signal player_died
 signal can_save
+signal player_damaged
 
 #new setting and getting methods for Godot 4
 var score=0 : set= set_score, get=get_score
 var deaths=0 : set=set_deaths, get=get_deaths
+var HP=5 : set=set_HP, get=get_HP
+var max_HP=5: set=set_max_HP, get=get_max_HP
 var has_wallcling = false : set=set_wallcling, get=get_wallcling
 var allow_save=false : set=set_allow_save, get=get_allow_save
 var save_path ="user://savegame.save"
@@ -25,6 +28,22 @@ func set_deaths(new_value:int)->void:
 
 func get_deaths()->int:
 	return deaths
+
+func set_HP(new_val:int):
+	HP=new_val
+	
+func set_max_HP(new_val:int):
+	max_HP=new_val
+
+func take_damage(damage:int):
+	HP-=damage
+	emit_signal("player_damaged")
+
+func get_HP()->int:
+	return HP
+
+func get_max_HP()->int:
+	return max_HP
 
 func get_wallcling()->bool:
 	return has_wallcling
@@ -61,6 +80,7 @@ func save_game_state():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_16(score)
 	file.store_16(deaths)
+	file.store_8(max_HP)
 	file.store_8(int(has_wallcling))
 	file.store_var(current_scene)
 	file.close()
@@ -71,6 +91,7 @@ func load_game_state():
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		set_score(file.get_16())
 		set_deaths(file.get_16())
+		set_max_HP(file.get_8())
 		set_wallcling(file.get_8())
 		set_current_scene(file.get_var())
 		file.close()

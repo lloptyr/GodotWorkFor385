@@ -450,7 +450,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape2D_w7aa2")
 
 [node name="downbox" type="CollisionPolygon2D" parent="AnimatedSprite2D/Hitboxdown"]
-polygon = PackedVector2Array(-9.98582, 21.9108, 8.62411, 21.9108, 9.07801, 6.6242, 35.8582, 6.6242, 35.8582, 42.8026, -37.2199, 42.293, -37.2199, 7.13376, -9.98582, 7.13376)
+polygon = PackedVector2Array(-12.7093, 25.9873, 10.4397, 25.9873, 10.4397, 6.6242, 35.8582, 6.6242, 35.8582, 42.8026, -37.2199, 42.293, -37.2199, 7.13376, -13.1632, 6.6242)
 disabled = true
 
 [node name="savedetector" type="Area2D" parent="."]

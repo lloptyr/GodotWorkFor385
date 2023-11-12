@@ -27,7 +27,17 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
-text = "Score: %s"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Coins: %s"
+
+[node name="HP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1058.0
+offset_top = 23.0
+offset_right = 1147.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "HP: %s / %s"
 
 [node name="PauseScreen" type="ColorRect" parent="."]
 visible = false

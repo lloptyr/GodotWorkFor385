@@ -9,3 +9,4 @@ func _on_button_up():
 		next_scene=PlayerData.get_playing_scene()
 		get_tree().change_scene_to_file(next_scene)
 		get_tree().paused=false
+		PlayerData.set_HP(PlayerData.get_max_HP())

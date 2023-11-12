@@ -1,7 +1,7 @@
 extends actor
 
 #here jumping is different on Godot 4
-@export var jump_impulse=-1400.0
+@export var jump_impulse=-1200.0
 @export var pogo_impulse=1000.0
 @export var wall_slide_acceleration =10.0
 @export var max_wall_slide_speed= 120.0
@@ -9,6 +9,9 @@ extends actor
 var can_jump = false
 var is_dead = false
 var is_falling = false
+var is_being_damaged=false
+var damage_impulse=500
+var i_frames=false
 
 
 
@@ -59,10 +62,27 @@ func _process(delta):
 func _on_hitboxdown_area_entered(area):
 	if get_node("AnimatedSprite2D/Hitboxdown/downbox").disabled==false:
 		velocity=calculate_pogo_velocity(velocity, pogo_impulse)
+		
+func damage_boost():
+	velocity=calculate_damage_boost(velocity, damage_impulse)
 	
 func _on_enemydetector_body_entered(body):
-	is_dead=true
-	die()
+	if(i_frames==false):
+		is_being_damaged=true;
+		PlayerData.take_damage(1)
+		i_frames_counter()
+		damage_boost()
+		await(get_tree().create_timer(0.2).timeout)
+		is_being_damaged=false
+		if(PlayerData.get_HP()<=0):
+			is_dead=true
+			die()
+
+# NEEDS TESTING AND DEBUGGING
+func i_frames_counter():
+	i_frames=true
+	await(get_tree().create_timer(.5).timeout)
+	i_frames=false
 
 func _physics_process(delta):
 	if(!is_dead):
@@ -96,18 +116,25 @@ func calculate_move_velocity(
 	is_jump_interrupted: bool
 )-> Vector2:
 	var output = linear_velocity
-	output.x=speed.x*direction.x
-	output.y+=gravity*get_physics_process_delta_time()
-	
+	if(!is_being_damaged):
+		output.x=speed.x*direction.x
+		output.y+=gravity*get_physics_process_delta_time()
 	if can_jump and Input.is_action_just_pressed("jump"):
 		output.y=jump_impulse
 	if is_jump_interrupted:
 		output.y=0.0
 	return output
+	
 
 func calculate_pogo_velocity(linear_velocity: Vector2, impulse:float)->Vector2:
 	var output=linear_velocity
 	output.y=-impulse
+	return output
+
+func calculate_damage_boost(linear_velocity: Vector2, impulse: float)->Vector2:
+	var output=linear_velocity
+	output.x=-impulse
+	output.y=-(impulse/3)
 	return output
 
 func die():
