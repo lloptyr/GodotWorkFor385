@@ -48,6 +48,7 @@ ToDo (potentially outside the scope of this class/complete if possible):
 1. more abilities  
 1. ability upgrades  
 1. minor Bug fixing  
+1. fix animation cancelling
 1. balancing  
 
 ToDo (definitely outside the scope of this class):
