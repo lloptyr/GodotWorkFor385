@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://crygf5g2w2qqv"]
+[gd_scene load_steps=10 format=3 uid="uid://crygf5g2w2qqv"]
 
 [ext_resource type="Script" path="res://Source/levels/testlevel2.gd" id="1_mj7qb"]
 [ext_resource type="PackedScene" uid="uid://cdrv17sw07yqd" path="res://Source/user_interface/user_interface.tscn" id="1_teenr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cukjftovpsx5t" path="res://Source/actor/enemy.tscn" id="4_ngjvk"]
 [ext_resource type="PackedScene" uid="uid://1gkldp2j4tlk" path="res://Source/objects/coin.tscn" id="5_x4jnx"]
 [ext_resource type="PackedScene" uid="uid://bamdbu3jurqa2" path="res://Source/objects/portal.tscn" id="6_6g4pm"]
+[ext_resource type="PackedScene" uid="uid://dfscftkm6j1m6" path="res://Source/objects/wallclingrune.tscn" id="9_kp2dn"]
 
 [node name="testlevel2" type="Node2D"]
 script = ExtResource("1_mj7qb")
@@ -62,6 +63,9 @@ position = Vector2(1249, 255)
 [node name="portal" parent="." instance=ExtResource("6_6g4pm")]
 position = Vector2(2803, 553)
 next_scene = "res://Source/levels/testlevel3.tscn"
+
+[node name="WallclingRune" parent="." instance=ExtResource("9_kp2dn")]
+position = Vector2(1290, 215)
 
 [editable path="Player"]
 [editable path="Player/AnimatedSprite2D/Hitboxfront"]

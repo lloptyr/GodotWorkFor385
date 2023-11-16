@@ -140,6 +140,7 @@ position = Vector2(4490, 32)
 position = Vector2(4247, 32)
 
 [node name="WallclingRune" parent="." instance=ExtResource("10_3eb5a")]
+visible = false
 position = Vector2(5610, -13)
 
 [editable path="Player"]

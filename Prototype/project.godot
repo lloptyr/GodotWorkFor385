@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerData="*res://Source/Autoload/player_data.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_left={
