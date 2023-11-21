@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bno2o7mntf7gk"
+path="res://.godot/imported/cure.wav-d6cec9c0749db311ad7ad2c916f59348.sample"
+
+[deps]
+
+source_file="res://start-assets/sounds/RPG Voice Starter Pack/Type 3/cure.wav"
+dest_files=["res://.godot/imported/cure.wav-d6cec9c0749db311ad7ad2c916f59348.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

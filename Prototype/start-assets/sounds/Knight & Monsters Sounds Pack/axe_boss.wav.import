@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c4d0pbp2dvq4b"
+path="res://.godot/imported/axe_boss.wav-94c19c20c2b544e8d643792d5921bd00.sample"
+
+[deps]
+
+source_file="res://start-assets/sounds/Knight & Monsters Sounds Pack/axe_boss.wav"
+dest_files=["res://.godot/imported/axe_boss.wav-94c19c20c2b544e8d643792d5921bd00.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

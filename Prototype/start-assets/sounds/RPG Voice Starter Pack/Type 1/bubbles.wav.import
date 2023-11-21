@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jtq50rfurqjq"
+path="res://.godot/imported/bubbles.wav-02ab1890fd75e7e432a4b98ca71aefe6.sample"
+
+[deps]
+
+source_file="res://start-assets/sounds/RPG Voice Starter Pack/Type 1/bubbles.wav"
+dest_files=["res://.godot/imported/bubbles.wav-02ab1890fd75e7e432a4b98ca71aefe6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

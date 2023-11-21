@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0hr54jghh1g2"
+path="res://.godot/imported/blizzard.wav-c3545922f21cd8302c4ddd8d6136a6b5.sample"
+
+[deps]
+
+source_file="res://start-assets/sounds/RPG Voice Starter Pack/Type 1/blizzard.wav"
+dest_files=["res://.godot/imported/blizzard.wav-c3545922f21cd8302c4ddd8d6136a6b5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

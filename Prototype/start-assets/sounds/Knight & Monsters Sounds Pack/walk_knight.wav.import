@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cashtctrb7qms"
+path="res://.godot/imported/walk_knight.wav-01ce2c2b0b44053c91fea7bc7a3e86d2.sample"
+
+[deps]
+
+source_file="res://start-assets/sounds/Knight & Monsters Sounds Pack/walk_knight.wav"
+dest_files=["res://.godot/imported/walk_knight.wav-01ce2c2b0b44053c91fea7bc7a3e86d2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

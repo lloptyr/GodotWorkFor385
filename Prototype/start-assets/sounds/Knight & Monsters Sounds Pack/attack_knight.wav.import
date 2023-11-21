@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ps8rasikjbdi"
+path="res://.godot/imported/attack_knight.wav-9995b027a02ba926f9165cb3c4416bd5.sample"
+
+[deps]
+
+source_file="res://start-assets/sounds/Knight & Monsters Sounds Pack/attack_knight.wav"
+dest_files=["res://.godot/imported/attack_knight.wav-9995b027a02ba926f9165cb3c4416bd5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
