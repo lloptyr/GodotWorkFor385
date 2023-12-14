@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://1gkldp2j4tlk"]
+[gd_scene load_steps=9 format=3 uid="uid://1gkldp2j4tlk"]
 
 [ext_resource type="Script" path="res://Source/objects/coin.gd" id="1_1dgmn"]
 [ext_resource type="Texture2D" uid="uid://orrn6t4oryg7" path="res://start-assets/coin.png" id="1_jshcc"]
+[ext_resource type="AudioStream" uid="uid://crv7xvqq370f6" path="res://start-assets/sounds/Knight & Monsters Sounds Pack/coin.wav" id="3_4q2uu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cen3y"]
 radius = 34.0147
@@ -114,5 +115,8 @@ autoplay = "bouncing"
 libraries = {
 "": SubResource("AnimationLibrary_7oym5")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4q2uu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

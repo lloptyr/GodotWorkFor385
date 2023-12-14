@@ -19,9 +19,13 @@ func _physics_process(delta):
 func die():
 	PlayerData.score+=score
 	get_node("CollisionShape2D").disabled=true
+	get_node("AnimatedSprite2D/Hurtbox/ouchzone").disabled=true
+	#await(get_node("deathsound").finished)
 	queue_free()
 
+
 func take_damage(damage):
+	get_node("deathsound").playing=true
 	health-=damage
 	if health<=0:
 		die()

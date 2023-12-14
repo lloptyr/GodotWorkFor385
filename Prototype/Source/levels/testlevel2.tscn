@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://crygf5g2w2qqv"]
+[gd_scene load_steps=11 format=3 uid="uid://crygf5g2w2qqv"]
 
 [ext_resource type="Script" path="res://Source/levels/testlevel2.gd" id="1_mj7qb"]
 [ext_resource type="PackedScene" uid="uid://cdrv17sw07yqd" path="res://Source/user_interface/user_interface.tscn" id="1_teenr"]
 [ext_resource type="TileSet" uid="uid://dkeip523b0pj8" path="res://start-assets/tileset.tres" id="2_31pa1"]
 [ext_resource type="Texture2D" uid="uid://uso68wr78ekw" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="2_hlimk"]
+[ext_resource type="PackedScene" uid="uid://cj56u3tl0560w" path="res://Source/user_interface/item_pickup.tscn" id="2_pqtqd"]
 [ext_resource type="PackedScene" uid="uid://dcbrbc1psw30s" path="res://Source/actor/player.tscn" id="3_0e3w1"]
 [ext_resource type="PackedScene" uid="uid://cukjftovpsx5t" path="res://Source/actor/enemy.tscn" id="4_ngjvk"]
 [ext_resource type="PackedScene" uid="uid://1gkldp2j4tlk" path="res://Source/objects/coin.tscn" id="5_x4jnx"]
@@ -14,10 +15,18 @@
 script = ExtResource("1_mj7qb")
 metadata/_edit_vertical_guides_ = [3042.0, 3037.0]
 
+[node name="Itemgetcanvas" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="item_pickup" parent="Itemgetcanvas" instance=ExtResource("2_pqtqd")]
+metadata/_edit_use_anchors_ = true
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
 layer = 100
 
 [node name="user_interface" parent="UserInterface" instance=ExtResource("1_teenr")]
+anchors_preset = -1
+anchor_bottom = 0.859568
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -29,6 +38,7 @@ offset_right = 1200.0
 offset_bottom = 806.0
 texture = ExtResource("2_hlimk")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(19, 0)

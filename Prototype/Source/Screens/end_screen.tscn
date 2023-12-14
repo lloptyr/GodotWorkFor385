@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Source/Screens/end_screen.gd" id="1_f3hsd"]
 [ext_resource type="Texture2D" uid="uid://uso68wr78ekw" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Background/Background.png" id="2_7hs0f"]
-[ext_resource type="PackedScene" uid="uid://cg3t2cltvlpnd" path="res://Source/user_interface/ChangeScenebutton.tscn" id="2_icipx"]
 [ext_resource type="PackedScene" uid="uid://c67dej086i6mk" path="res://Source/user_interface/quit_button.tscn" id="3_16ye3"]
+[ext_resource type="PackedScene" uid="uid://c8mnrrwiad5ng" path="res://Source/user_interface/main_menu_button.tscn" id="3_tyr0u"]
 [ext_resource type="Theme" uid="uid://c0mggfv438fb1" path="res://start-assets/new_theme.tres" id="4_ubkbv"]
 
 [node name="EndScreen" type="Control"]
@@ -41,9 +41,9 @@ offset_bottom = 86.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChangeSceneButton" parent="Menu" instance=ExtResource("2_icipx")]
+[node name="MainMenuButton" parent="Menu" instance=ExtResource("3_tyr0u")]
 layout_mode = 2
-text = "Play Again?"
+size_flags_vertical = 3
 next_scene_path = "res://Source/Screens/main_screen.tscn"
 
 [node name="QuitButton" parent="Menu" instance=ExtResource("3_16ye3")]
@@ -60,7 +60,10 @@ offset_bottom = 71.0
 grow_horizontal = 2
 theme = ExtResource("4_ubkbv")
 theme_type_variation = &"HeaderLarge"
-text = "Congratulations, You finished the demo!"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Congratulations, You finished the demo, though there's still more to be found.
+This was a proof of concept, more will come on further development!"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score" type="Label" parent="."]
@@ -78,7 +81,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ubkbv")
 theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "Your Final Score is: %s
 You Died %s times"
 
-[connection signal="button_up" from="Menu/ChangeSceneButton" to="Menu/ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="Menu/MainMenuButton" to="Menu/MainMenuButton" method="_on_button_up"]

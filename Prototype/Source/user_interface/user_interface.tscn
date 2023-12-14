@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdrv17sw07yqd"]
+[gd_scene load_steps=10 format=3 uid="uid://cdrv17sw07yqd"]
 
 [ext_resource type="Theme" uid="uid://c0mggfv438fb1" path="res://start-assets/new_theme.tres" id="1_i40g4"]
 [ext_resource type="Script" path="res://Source/user_interface/user_interface.gd" id="2_61x87"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://Source/user_interface/Retrybutton.gd" id="4_4cmb1"]
 [ext_resource type="PackedScene" uid="uid://c67dej086i6mk" path="res://Source/user_interface/quit_button.tscn" id="5_owojg"]
 [ext_resource type="PackedScene" uid="uid://c8mnrrwiad5ng" path="res://Source/user_interface/main_menu_button.tscn" id="6_bt8h3"]
+[ext_resource type="AudioStream" uid="uid://dpav1bjl1mig2" path="res://start-assets/sounds/svl/dungeon_theme_1.wav" id="8_31d56"]
+[ext_resource type="AudioStream" uid="uid://cnbbrahhqw4v3" path="res://start-assets/sounds/svl/cave_theme_1.wav" id="9_sce3q"]
 
 [node name="user_interface" type="Control"]
 process_mode = 3
@@ -79,6 +81,12 @@ next_scene_path = "res://Source/Screens/main_screen.tscn"
 
 [node name="QuitButton" parent="PauseScreen/PauseMenu" instance=ExtResource("5_owojg")]
 layout_mode = 2
+
+[node name="dungeonmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_31d56")
+
+[node name="cavemusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sce3q")
 
 [connection signal="button_up" from="PauseScreen/PauseMenu/Retry" to="PauseScreen/PauseMenu/Retry" method="_on_button_up"]
 [connection signal="button_up" from="PauseScreen/PauseMenu/MainMenuButton" to="PauseScreen/PauseMenu/MainMenuButton" method="_on_button_up"]

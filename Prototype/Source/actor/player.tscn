@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dcbrbc1psw30s"]
+[gd_scene load_steps=65 format=3 uid="uid://dcbrbc1psw30s"]
 
 [ext_resource type="Script" path="res://Source/actor/player.gd" id="1_062o1"]
 [ext_resource type="Texture2D" uid="uid://31qrdc1jjjfl" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="2_07knd"]
@@ -8,12 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://bb2tonlgf0wf3" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png" id="3_uekv6"]
 [ext_resource type="Texture2D" uid="uid://cqy5n86g3opyh" path="res://start-assets/Legacy-Fantasy - High Forest 2.3/Character/Jump-End/Jump-End-Sheet.png" id="7_gllss"]
 [ext_resource type="PackedScene" uid="uid://cibi3sgnvpii4" path="res://Source/actor/hitbox.tscn" id="8_fo23q"]
+[ext_resource type="PackedScene" uid="uid://c5p7q4ip1c04f" path="res://Source/sounds/swordswingaudio.tscn" id="9_qvnah"]
+[ext_resource type="AudioStream" uid="uid://cd2kkanik6t44" path="res://start-assets/sounds/RPG Voice Starter Pack/Type 3/jump2.wav" id="10_usooq"]
+[ext_resource type="AudioStream" uid="uid://q4ghc0266wbx" path="res://start-assets/sounds/RPG Voice Starter Pack/Type 3/damaged2.wav" id="11_h5mu8"]
+[ext_resource type="AudioStream" uid="uid://d1twdng60kywl" path="res://start-assets/sounds/RPG Voice Starter Pack/Type 3/damaged3.wav" id="12_uc4qr"]
+[ext_resource type="AudioStream" uid="uid://8ty1olxdwedk" path="res://start-assets/sounds/RPG Voice Starter Pack/Type 3/healed2.wav" id="13_qgxrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djoob"]
 size = Vector2(34, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_li0ks"]
-size = Vector2(38, 95)
+size = Vector2(38, 97)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0m84"]
 atlas = ExtResource("2_e8kaw")
@@ -408,7 +413,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemydetector"]
 modulate = Color(0, 0, 1, 1)
-position = Vector2(-1, -56.5)
+position = Vector2(-1, -57.5)
 shape = SubResource("RectangleShape2D_li0ks")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -460,6 +465,20 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="savedetector"]
 position = Vector2(-2.5, -55.5)
 shape = SubResource("RectangleShape2D_10fli")
+
+[node name="swordswingaudio" parent="." instance=ExtResource("9_qvnah")]
+
+[node name="jumpnoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_usooq")
+
+[node name="takedamagenoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_h5mu8")
+
+[node name="dienoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_uc4qr")
+
+[node name="healednoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qgxrc")
 
 [connection signal="area_entered" from="enemydetector" to="." method="_on_enemydetector_area_entered"]
 [connection signal="body_entered" from="enemydetector" to="." method="_on_enemydetector_body_entered"]

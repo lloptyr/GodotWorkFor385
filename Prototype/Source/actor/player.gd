@@ -6,26 +6,35 @@ extends actor
 @export var wall_slide_acceleration =10.0
 @export var max_wall_slide_speed= 120.0
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var sword_swing =get_node("swordswingaudio")
+@onready var jumpnoise=get_node("jumpnoise")
+@onready var camera=get_node("Camera2D")
+@onready var defaultcamera=Vector2(0,0)
 var can_jump = false
 var is_dead = false
 var is_falling = false
 var is_being_damaged=false
 var damage_impulse=500
 var i_frames=false
+var attack_cd=false
+
 
 
 
 func _process(delta):
+	if(camera.get_offset()!=defaultcamera && !Input.is_action_pressed("down")):
+		camera.set_offset(defaultcamera)
 	if (!is_dead):
-		if Input.is_action_just_pressed("attack") && Input.is_action_pressed("down"):
+		if Input.is_action_just_pressed("attack") && Input.is_action_pressed("down") && !attack_cd:
 			_animated_sprite.play("attack down")
-		elif Input.is_action_just_pressed("attack") && Input.is_action_pressed("down") && Input.is_action_pressed("jump"):
+		elif Input.is_action_just_pressed("attack") && Input.is_action_pressed("down") && Input.is_action_pressed("jump") && !attack_cd:
 			_animated_sprite.play("attack down")
-		elif Input.is_action_just_pressed("attack") && Input.is_action_pressed("jump"):
+		elif Input.is_action_just_pressed("attack") && Input.is_action_pressed("jump") && !attack_cd:
 			_animated_sprite.play("attack forwards")
-		elif Input.is_action_just_pressed("attack"):
+		elif Input.is_action_just_pressed("attack") && !attack_cd:
 			_animated_sprite.play("attack forwards")
 		elif Input.is_action_pressed("jump") && is_falling && !(_animated_sprite.animation=="attack forwards" || _animated_sprite.animation=="attack down"):
+			jumpnoise.playing=true
 			_animated_sprite.play("jump")
 		elif (_animated_sprite.animation == "jump" && !is_falling):
 			_animated_sprite.play("recover")
@@ -37,23 +46,37 @@ func _process(delta):
 			_animated_sprite.play("running")
 		elif(Input.is_action_just_released("move_left")||Input.is_action_just_released("move_right")):
 				_animated_sprite.stop()
+		elif(Input.is_action_just_pressed("down")):
+			await(get_tree().create_timer(1).timeout)
+			camera.set_offset(Vector2(0,250))
 		elif !_animated_sprite.is_playing() && !is_falling:
 			_animated_sprite.play("idle")
 		
 		if(_animated_sprite.animation=="attack forwards" && !_animated_sprite.flip_h):
 			_animated_sprite.get_node("Hitboxfront/damagebox").disabled=false
-			await(_animated_sprite.animation_finished)
+			attack_cd=true
+			sword_swing.playing=true
+			await(sword_swing.finished)
+			attack_cd=false
 			_animated_sprite.get_node("Hitboxfront/damagebox").disabled=true
 		if(_animated_sprite.animation=="attack forwards" && _animated_sprite.flip_h):
 			_animated_sprite.get_node("Hitboxback/damagebox").disabled=false
-			await(_animated_sprite.animation_finished)
+			attack_cd=true
+			sword_swing.playing=true
+			await(sword_swing.finished)
+			attack_cd=false
 			_animated_sprite.get_node("Hitboxback/damagebox").disabled=true
 		if _animated_sprite.animation=="attack down":
 			_animated_sprite.get_node("Hitboxdown/downbox").disabled=false
-			await(_animated_sprite.animation_finished)
+			attack_cd=true
+			sword_swing.playing=true
+			await(sword_swing.finished)
+			attack_cd=false
 			_animated_sprite.get_node("Hitboxdown/downbox").disabled=true
 			
 		if PlayerData.get_allow_save() && Input.is_action_just_pressed("interact"):
+			PlayerData.set_HP(PlayerData.get_max_HP())
+			get_node("healednoise").playing=true
 			PlayerData.save_game_state()
 
 
@@ -72,6 +95,7 @@ func _on_enemydetector_body_entered(body):
 		PlayerData.take_damage(1)
 		i_frames_counter()
 		damage_boost()
+		get_node("takedamagenoise").playing=true
 		await(get_tree().create_timer(0.2).timeout)
 		is_being_damaged=false
 		if(PlayerData.get_HP()<=0):
@@ -140,6 +164,7 @@ func calculate_damage_boost(linear_velocity: Vector2, impulse: float)->Vector2:
 func die():
 	velocity = Vector2(0,0)
 	_animated_sprite.play("death")
+	get_node("dienoise").playing=true
 	await( _animated_sprite.animation_finished)
 	PlayerData.deaths+=1
 	is_dead=false
@@ -158,3 +183,8 @@ func _on_savedetector_area_entered(area):
 func _on_savedetector_area_exited(area):
 	PlayerData.set_allow_save(false)
 
+func _ready():
+	if(PlayerData.get_exit_shop()):
+		position.x=9253
+		print("position: " +str(position.x))
+		PlayerData.set_exit_shop(false)

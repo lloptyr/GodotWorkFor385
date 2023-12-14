@@ -75,10 +75,10 @@ scale = Vector2(3.9375, 3.68919)
 texture = ExtResource("1_14e5t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Hide_text"
 libraries = {
 "": SubResource("AnimationLibrary_fwpgv")
 }
+autoplay = "Hide_text"
 
 [node name="Tooltip" type="Label" parent="."]
 offset_top = -34.0
