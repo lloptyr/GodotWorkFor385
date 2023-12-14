@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5p7q4ip1c04f"]
+
+[ext_resource type="AudioStream" uid="uid://ps8rasikjbdi" path="res://start-assets/sounds/Knight & Monsters Sounds Pack/attack_knight.wav" id="1_lryq7"]
+
+[node name="swordswingaudio" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_lryq7")

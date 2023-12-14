@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3x3gn4wt1via"]
+
+[ext_resource type="Texture2D" uid="uid://dx1c1askji3js" path="res://start-assets/self-made/11088122.jpg" id="1_xc8q6"]
+[ext_resource type="Texture2D" uid="uid://cmfvos6vipfpr" path="res://start-assets/Free Medieval Pack/Female_06.png" id="2_1myav"]
+[ext_resource type="Script" path="res://Source/user_interface/dialogue.gd" id="3_5e37v"]
+[ext_resource type="AudioStream" uid="uid://c4sevhcp6al6h" path="res://start-assets/sounds/svl/Track_#6.wav" id="4_s84a0"]
+
+[node name="shopinteriorfirstvisit" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xc8q6")
+expand_mode = 1
+
+[node name="Female06" type="Sprite2D" parent="CanvasLayer"]
+z_index = 3
+position = Vector2(973, 395)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1myav")
+
+[node name="dialogue" type="ColorRect" parent="CanvasLayer"]
+offset_left = 117.0
+offset_top = 429.0
+offset_right = 786.0
+offset_bottom = 609.0
+color = Color(0, 0, 0, 0.415686)
+script = ExtResource("3_5e37v")
+next_scene = "res://Source/levels/submissionlevel.tscn"
+
+[node name="npclines" type="Label" parent="CanvasLayer/dialogue"]
+layout_mode = 0
+offset_right = 669.0
+offset_bottom = 219.0
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="response" type="Button" parent="CanvasLayer/dialogue"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -39.0
+offset_right = 53.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="tavernmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s84a0")
+
+[connection signal="button_up" from="CanvasLayer/dialogue/response" to="CanvasLayer/dialogue" method="_on_response_button_up"]

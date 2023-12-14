@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5juykg1nmg16"]
+
+[ext_resource type="Script" path="res://Source/objects/shopexterior.gd" id="1_o8cbb"]
+[ext_resource type="Texture2D" uid="uid://dgfx2ieegyoln" path="res://start-assets/houses2D_by_Styl0o/housebrick.png" id="1_ycupb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndbgd"]
+size = Vector2(79, 106.5)
+
+[sub_resource type="Animation" id="Animation_1be50"]
+resource_name = "hide_text"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tooltip:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pjs3f"]
+resource_name = "show_text"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("tooltip:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_08rpy"]
+_data = {
+"hide_text": SubResource("Animation_1be50"),
+"show_text": SubResource("Animation_pjs3f")
+}
+
+[node name="shopexterior" type="Area2D"]
+z_index = -1
+collision_layer = 8
+script = ExtResource("1_o8cbb")
+next_scene = "res://Source/levels/shopinterior.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(153, 210.25)
+shape = SubResource("RectangleShape2D_ndbgd")
+
+[node name="Housebrick" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(252, 86)
+texture = ExtResource("1_ycupb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_08rpy")
+}
+autoplay = "hide_text"
+
+[node name="tooltip" type="Label" parent="."]
+visible = false
+offset_left = 95.0
+offset_top = 122.0
+offset_right = 216.0
+offset_bottom = 148.0
+text = "Press x to enter"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
